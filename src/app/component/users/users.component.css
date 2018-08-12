@@ -1,0 +1,37 @@
+.UserList {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-top: -10px;
+}
+.UserList_item {
+  flex-basis: 33.33333%;
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.User {
+  display: block;
+  height: 200px;
+  background-size: cover;
+  background-position: center center;
+
+  color: inherit;
+  text-decoration: none;
+
+  position: relative;
+}
+.User_displayName {
+  position: absolute;
+  z-index: 2;
+  left: 0; right: 0;
+  bottom: 0;
+
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+}

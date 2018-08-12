@@ -1,0 +1,16 @@
+<ng-container
+  *ngIf="target !== null"
+>
+  <div class="JsonViewer">
+    <div class="JsonViewer_label"
+      (click)="toggleVisibility()"
+    >Json Data</div>
+    <pre class="JsonViewer_content"
+      [ngClass]="{
+        '-visible': visible
+      }"
+    >
+      <code class="JsonViewer_code">{{jsonString}}</code>
+    </pre>
+  </div>
+</ng-container>

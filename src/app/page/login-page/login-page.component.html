@@ -1,0 +1,32 @@
+<div class="Container">
+  <div class="Login">
+    <div class="Login_title">LOGIN</div>
+    <div class="Login_formItems">
+
+        <div class="Login_formItem">
+          <div class="FormItem">
+            <div class="FormItem_label">USER NAME</div>
+            <div class="FormItem_input">
+              <input type="text" [(ngModel)]="username">
+            </div>
+          </div>
+        </div>
+
+        <div class="Login_formItem">
+          <div class="FormItem">
+            <div class="FormItem_label">PASSWORD</div>
+            <div class="FormItem_input">
+              <input type="text" [(ngModel)]="password">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    <div class="Login_submit">
+      <div
+        class="Login_submitButton"
+        (click)="login()"
+      >LOGIN</div>
+    </div>
+  </div>
+</div>

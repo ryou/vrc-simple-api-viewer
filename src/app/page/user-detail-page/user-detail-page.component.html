@@ -1,0 +1,32 @@
+<div
+  *ngIf="user !== null"
+>
+
+<div class="UserDetail">
+  <div class="UserDetail_left">
+    <div class="UserDetail_photo">
+      <img [src]="user.currentAvatarThumbnailImageUrl" alt="">
+    </div>
+  </div>
+  <div class="UserDetail_right">
+    <div class="UserDetail_name">
+      <span class="UserDetail_displayName">{{user.displayName}}</span>
+      <span class="UserDetail_userName">[{{user.username}}]</span>
+    </div>
+    <div class="UserDetail_id">{{user.id}}</div>
+    <div
+      class="UserDetail_location"
+      *ngIf="user.location.startsWith('wrld_')"
+    >
+      <a
+        routerLink="/authed/instance/{{user.location}}"
+        class="UserDetail_locationButton"
+      >Location</a>
+    </div>
+
+  </div>
+</div>
+
+<app-json-viewer [target]="user"></app-json-viewer>
+
+</div>

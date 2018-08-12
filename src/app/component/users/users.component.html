@@ -1,0 +1,16 @@
+<ul class="UserList">
+  <li
+    class="UserList_item"
+    *ngFor="let user of users"
+  >
+    <a
+      routerLink="/authed/users/{{user.username}}"
+      class="User"
+      [ngStyle]="{
+        'background-image': 'url(' + user.currentAvatarThumbnailImageUrl + ')'
+      }"
+    >
+      <p class="User_displayName">{{user.displayName}}</p>
+    </a>
+  </li>
+</ul>

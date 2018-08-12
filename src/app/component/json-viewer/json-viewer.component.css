@@ -1,0 +1,24 @@
+.JsonViewer {
+
+}
+.JsonViewer_label {
+  padding: 10px;
+  background: #ecf0f1;
+
+  cursor: pointer;
+}
+.JsonViewer_content {
+  max-width: 100%;
+  overflow: auto;
+
+  border: 1px solid #ecf0f1;
+
+  height: 0;
+}
+.JsonViewer_content.-visible {
+  height: auto;
+}
+.JsonViewer_code {
+  display: block;
+  padding: 0 10px;
+}

@@ -1,0 +1,177 @@
+.App {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+.App_menu {
+  flex-basis: 250px;
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.App_main {
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  padding: 20px;
+  min-width: 600px;
+
+  overflow-x: auto;
+  overflow-y: scroll;
+
+  position: relative;
+}
+
+.FriendList {
+
+}
+.FriendList_tools {
+  display: flex;
+}
+.FriendList_logout {
+  flex-basis: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #2c3e50;
+
+  cursor: pointer;
+}
+.FriendList_logout i {
+  color: #fff;
+}
+.FriendList_filter {
+  flex-grow: 1;
+
+  display: flex;
+}
+.FriendList_filterIcon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.FriendList_filterInput {
+  height: 40px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+}
+.FriendList_filterInput input {
+  width: 100%;
+  height: 40px;
+  border: 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+  outline: 0;
+
+  font-size: 16px;
+}
+.FriendList_group {
+  position: relative;
+}
+.FriendList_label {
+  position: sticky;
+  z-index: 5;
+  top: 0; left: 0;
+  font-size: 20px;
+  padding: 10px;
+  background: #ecf0f1;
+}
+.FriendList_item {
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.Friend {
+  padding: 10px;
+
+  display: flex;
+
+  color: inherit;
+  text-decoration: none;
+
+  transition: opacity .2s;
+}
+.Friend:hover {
+  opacity: .6;
+}
+.Friend_thumb {
+  flex-basis: 60px;
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  height: 60px;
+  margin-right: 10px;
+  border-radius: 9999px;
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center center;
+}
+.Friend_info {
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.Friend_name {
+  font-size: 18px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.Friend_status {
+  font-size: 12px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.Loading {
+  position: absolute;
+  z-index: 10;
+  left: 0; right: 0;
+  bottom: 0; top: 0;
+
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.Loading.-visible {
+  opacity: 1;
+  pointer-events: initial;
+}
+.Loading i {
+  font-size: 60px;
+
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

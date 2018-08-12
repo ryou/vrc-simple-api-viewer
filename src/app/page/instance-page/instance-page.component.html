@@ -1,0 +1,21 @@
+<div
+  *ngIf="world !== null"
+>
+  <div
+    class="World"
+    [ngStyle]="{
+      'background-image': 'url(' + world.thumbnailImageUrl + ')'
+    }"
+  >
+    <p class="World_name"><span class="World_nameText">{{world.name}}</span></p>
+  </div>
+  <app-json-viewer [target]="world"></app-json-viewer>
+</div>
+
+<div
+  *ngIf="instance !== null"
+>
+  <app-users
+    [users]="instance.users"
+  ></app-users>
+</div>
