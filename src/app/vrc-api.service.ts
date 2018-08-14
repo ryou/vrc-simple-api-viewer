@@ -47,13 +47,15 @@ export class VrcApiService {
     private toastService: ToastService
   ) { }
 
-  private callApi<T>(method: string, action: string) {
+  private callApi<T>(method: string, action: string, options: Object = {}) {
+    const defaultOptions = {
+      withCredentials: true,
+    };
     return this.http.request<T>(
-      method,
-      `${environment.apiBaseUrl}${action}`,
-      {
-        withCredentials: true,
-      })
+        method,
+        `${environment.apiBaseUrl}${action}`,
+        Object.assign(defaultOptions, options)
+      )
       .pipe(
         Operators.catchError((error) => {
           if (error.error instanceof ErrorEvent) {
@@ -76,7 +78,12 @@ export class VrcApiService {
   }
 
   auth(name: string, password: string) {
-    return this.callApi<any>('GET', `auth/login/${name}/${password}`);
+    return this.callApi<any>('POST', `auth/login`, {
+      body: {
+        id: name,
+        password: password,
+      },
+    });
   }
 
   logout() {
