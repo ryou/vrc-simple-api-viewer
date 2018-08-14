@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { VrcApiService } from '../../vrc-api.service';
 import { StateService } from '../../state.service';
 
@@ -13,6 +14,7 @@ export class LoginPageComponent implements OnInit {
   password: string = '';
 
   constructor(
+    private router: Router,
     private vrcApiService: VrcApiService,
     private stateService: StateService
   ) {}
@@ -24,7 +26,7 @@ export class LoginPageComponent implements OnInit {
     this.vrcApiService.auth(this.username, this.password)
       .subscribe(() => {
         this.stateService.loading = false;
-        window.location.href = '/authed/friends'
+        this.router.navigateByUrl('/authed/friends');
       });
   }
 
