@@ -12,6 +12,7 @@ import { UserDetailPageComponent } from './page/user-detail-page/user-detail-pag
 import { InstancePageComponent } from './page/instance-page/instance-page.component';
 import { JsonViewerComponent } from './component/json-viewer/json-viewer.component';
 import { AuthenticatedPageComponent } from './page/authenticated-page/authenticated-page.component';
+import { FriendListComponent } from './page/authenticated-page/components/friend-list/friend-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthenticatedPageComponent } from './page/authenticated-page/authentica
     UserDetailPageComponent,
     InstancePageComponent,
     JsonViewerComponent,
-    AuthenticatedPageComponent
+    AuthenticatedPageComponent,
+    FriendListComponent
   ],
   imports: [
     BrowserModule,

@@ -18,55 +18,15 @@
         </div>
       </div>
 
-      <div class="FriendList_group">
-        <div class="FriendList_label">Online</div>
+      <app-friend-list
+        status="online"
+        [filter]="filter"
+      ></app-friend-list>
 
-        <div
-          *ngFor="let friend of displayOnlineFriends"
-          class="FriendList_item"
-        >
-          <a
-            routerLink="./users/{{friend.username}}"
-            class="Friend"
-          >
-            <div
-              class="Friend_thumb"
-              [ngStyle]="{
-                'background-image': 'url(' + friend.currentAvatarThumbnailImageUrl + ')'
-              }"
-            ></div>
-            <div class="Friend_info">
-              <div class="Friend_name">{{friend.displayName}}</div>
-              <div class="Friend_status">{{(friend.location.startsWith('wrld_')) ? 'online' : friend.location}}</div>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="FriendList_group">
-        <div class="FriendList_label">Offline</div>
-
-        <div
-          *ngFor="let friend of displayOfflineFriends"
-          class="FriendList_item"
-        >
-          <a
-            routerLink="./users/{{friend.username}}"
-            class="Friend"
-          >
-            <div
-              class="Friend_thumb"
-              [ngStyle]="{
-                'background-image': 'url(' + friend.currentAvatarThumbnailImageUrl + ')'
-              }"
-            ></div>
-            <div class="Friend_info">
-              <div class="Friend_name">{{friend.displayName}}</div>
-              <div class="Friend_status">{{(friend.location.startsWith('wrld_')) ? 'online' : friend.location}}</div>
-            </div>
-          </a>
-        </div>
-      </div>
+      <app-friend-list
+        status="offline"
+        [filter]="filter"
+      ></app-friend-list>
 
     </div>
   </div>

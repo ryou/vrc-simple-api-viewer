@@ -10,19 +10,7 @@ import { StateService } from '../../state.service';
 })
 export class AuthenticatedPageComponent implements OnInit {
 
-  onlineFriends: UserData[] = [];
-  offlineFriends: UserData[] = [];
-
   filter: string = '';
-
-  get displayOnlineFriends(): UserData[] {
-    if (this.filter === '') return this.onlineFriends;
-    return this.onlineFriends.filter(friend => friend.displayName.toLowerCase().includes(this.filter.toLowerCase()));
-  }
-  get displayOfflineFriends(): UserData[] {
-    if (this.filter === '') return this.offlineFriends;
-    return this.offlineFriends.filter(friend => friend.displayName.toLowerCase().includes(this.filter.toLowerCase()));
-  }
 
   state: StateService;
 
@@ -34,26 +22,6 @@ export class AuthenticatedPageComponent implements OnInit {
 
   ngOnInit() {
     this.state = this.stateService;
-
-    this.vrcApiService.getFriends()
-      .subscribe(
-        (res) => {
-          console.log(res);
-
-          this.onlineFriends = res;
-        },
-        error => console.error(error)
-      );
-
-    this.vrcApiService.getFriends("true")
-      .subscribe(
-        (res) => {
-          console.log(res);
-
-          this.offlineFriends = res;
-        },
-        error => console.error(error)
-      );
   }
 
   logout() {

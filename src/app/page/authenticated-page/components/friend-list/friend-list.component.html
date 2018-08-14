@@ -1,0 +1,36 @@
+<div class="FriendList_group">
+  <div class="FriendList_labelArea">
+    <div class="FriendList_label">{{ status | titlecase }}</div>
+    <div
+      class="FriendList_reload"
+      [ngClass]="{
+        '-loading': this.isLoading
+      }"
+      (click)="loadFriends()"
+    >
+        <i class="material-icons">autorenew</i>
+    </div>
+  </div>
+
+  <div
+    *ngFor="let friend of displayFriends"
+    class="FriendList_item"
+  >
+    <a
+      routerLink="./users/{{friend.username}}"
+      class="Friend"
+    >
+      <div
+        class="Friend_thumb"
+        [ngStyle]="{
+          'background-image': 'url(' + friend.currentAvatarThumbnailImageUrl + ')'
+        }"
+      ></div>
+      <div class="Friend_info">
+        <div class="Friend_name">{{friend.displayName}}</div>
+        <div class="Friend_status">{{(friend.location.startsWith('wrld_')) ? 'online' : friend.location}}</div>
+      </div>
+    </a>
+  </div>
+</div>
+

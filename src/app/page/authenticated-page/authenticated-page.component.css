@@ -74,69 +74,7 @@
 
   font-size: 16px;
 }
-.FriendList_group {
-  position: relative;
-}
-.FriendList_label {
-  position: sticky;
-  z-index: 5;
-  top: 0; left: 0;
-  font-size: 20px;
-  padding: 10px;
-  background: #ecf0f1;
-}
-.FriendList_item {
-  border-bottom: 1px solid #ecf0f1;
-}
 
-.Friend {
-  padding: 10px;
-
-  display: flex;
-
-  color: inherit;
-  text-decoration: none;
-
-  transition: opacity .2s;
-}
-.Friend:hover {
-  opacity: .6;
-}
-.Friend_thumb {
-  flex-basis: 60px;
-  flex-grow: 0;
-  flex-shrink: 0;
-
-  height: 60px;
-  margin-right: 10px;
-  border-radius: 9999px;
-  overflow: hidden;
-
-  background-size: cover;
-  background-position: center center;
-}
-.Friend_info {
-  flex-grow: 1;
-  flex-shrink: 1;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.Friend_name {
-  font-size: 18px;
-
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.Friend_status {
-  font-size: 12px;
-
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
 
 .Loading {
   position: absolute;
