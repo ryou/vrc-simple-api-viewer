@@ -1,1 +1,10 @@
 <router-outlet></router-outlet>
+
+<div class="Toast">
+  <div
+    class="Toast_body"
+    [ngClass]="{
+      '-visible': toastIsVisible
+    }"
+  >{{ toastMessage }}</div>
+</div>

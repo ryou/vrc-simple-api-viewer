@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import * as Rx from 'rxjs';
+import { ToastService } from './toast.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,19 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'vrc-simple-api-viewer';
 
-  constructor() {}
+  toastMessage = '';
+  toastIsVisible = false;
 
-  ngOnInit() {}
+  constructor(
+    private toastService: ToastService
+  ) {}
+
+  ngOnInit() {
+    this.toastService.observable.subscribe(message => {
+      this.toastMessage = message;
+      this.toastIsVisible = true;
+      Rx.timer(5000)
+        .subscribe(() => this.toastIsVisible = false);
+    });
+  }
 }

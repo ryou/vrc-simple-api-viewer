@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from '../../node_modules/rxjs';
 import * as Operators from '../../node_modules/rxjs/operators';
 import { environment } from '../environments/environment';
+import { Router } from '@angular/router';
+import { ToastService } from './toast.service';
 
 export interface UserData {
   id: string;
@@ -39,7 +41,11 @@ export interface InstanceData {
 
 export class VrcApiService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private toastService: ToastService
+  ) { }
 
   private callApi<T>(method: string, action: string) {
     return this.http.request<T>(
@@ -60,7 +66,8 @@ export class VrcApiService {
               `Backend returned code ${error.status}, ` +
               `body was: ${error.error}`);
 
-            window.location.href = "/login";
+            this.toastService.launchToast(`Failed by ${error.status} error.`);
+            if (error.status == '401') this.router.navigateByUrl("/login");
           }
 
           return throwError('error');
