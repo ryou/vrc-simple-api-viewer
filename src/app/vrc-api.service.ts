@@ -14,9 +14,13 @@ export interface UserData {
   currentAvatarThumbnailImageUrl: string;
   status: string;
   statusDescription: string;
-  location: string;
   developerType: string;
   tags: string[];
+}
+export interface FriendData extends UserData {
+  location: string;
+  worldId: string;
+  instanceId: string;
 }
 
 export interface WorldData {
@@ -46,6 +50,10 @@ export class VrcApiService {
     private router: Router,
     private toastService: ToastService
   ) { }
+
+  public static isFriendData(data: UserData): data is FriendData {
+    return (<FriendData>data).location !== undefined;
+  }
 
   private callApi<T>(method: string, action: string, options: Object = {}) {
     const defaultOptions = {

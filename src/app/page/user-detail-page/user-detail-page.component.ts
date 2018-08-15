@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { VrcApiService, UserData } from '../../vrc-api.service';
+import { VrcApiService, UserData, FriendData } from '../../vrc-api.service';
 import { StateService } from '../../state.service';
 
 @Component({
@@ -10,7 +10,11 @@ import { StateService } from '../../state.service';
 })
 export class UserDetailPageComponent implements OnInit {
 
-  user: UserData = null;
+  user: UserData | FriendData = null;
+
+  get isFriend() {
+    return VrcApiService.isFriendData(this.user);
+  }
 
   constructor(
     private route: ActivatedRoute,

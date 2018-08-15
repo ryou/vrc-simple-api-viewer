@@ -16,7 +16,7 @@
     <div class="UserDetail_id">{{user.id}}</div>
     <div
       class="UserDetail_location"
-      *ngIf="user.location.startsWith('wrld_')"
+      *ngIf="isFriend && user.location.startsWith('wrld_')"
     >
       <a
         routerLink="/authed/instance/{{user.location}}"
